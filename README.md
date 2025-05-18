@@ -19,7 +19,6 @@ pip install matplotlib
 
 ## **我的实验结果**
 使用D盘（989083个文件）、F盘（34800个文件）、E盘（148628个文件）分别进行测试，首位数字的分布整体呈现对数分布，有部分峰值，但1确实是出现最多的；第二位数字整体呈现均匀分布；进制的选择并不影响结果。以下仅呈现D盘的实验结果。
-![2](https://github.com/user-attachments/assets/326d1029-082d-4d8d-bd43-d05a55504afe)
 ![16](https://github.com/user-attachments/assets/10a3b83e-c3d2-4d01-9822-d9a0087c297e)
 ![15](https://github.com/user-attachments/assets/99bd335f-bbaa-42f9-bd6f-130f6304e89d)
 ![14](https://github.com/user-attachments/assets/aedac734-56ab-4b9b-b04b-59dee6e54b36)
@@ -34,7 +33,7 @@ pip install matplotlib
 ![5](https://github.com/user-attachments/assets/c6942907-df7d-48af-a15b-9e0a830d0c73)
 ![4](https://github.com/user-attachments/assets/2a384d44-4838-4c03-a0ed-ed88a4dc4131)
 ![3](https://github.com/user-attachments/assets/c1179d07-848b-45c2-ac39-67636d4477c3)
-
+![2](https://github.com/user-attachments/assets/326d1029-082d-4d8d-bd43-d05a55504afe)
 希望这个程序可以帮助你通过自己电脑就可以直观地感受到视频中的内容。
 
 感谢TRAE、 deepseek的深入参与。❤❤❤
