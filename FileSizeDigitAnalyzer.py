@@ -74,24 +74,38 @@ def plot_size(counts,路径):
     # 绘制首位数字柱状图
     plt.subplot(1, 2, 1)
     
+    bars1 = plt.bar(first_counts.index, first_counts.values, color='#a0d4e4', edgecolor='black')
     plt.bar(first_counts.index, first_counts.values,color='#a0d4e4', edgecolor='black')
     plt.xlabel(f'首位数字 (进制: {base})')
     plt.ylabel('出现次数')
-    plt.title(f'{路径[0].upper()}文件大小{base}进制首位数字分布')
+    plt.title(f'{路径[0].upper()}盘文件大小{base}进制首位数字分布')
     plt.xticks(range(0, base))
-
+    # 在柱子上方添加百分比
+    total1 = sum(first_counts.values)
+    for bar in bars1:
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width() / 2, height, f'{height / total1 * 100:.1f}%', ha='center', va='bottom')
+    
     # 绘制第二位数字柱状图
     plt.subplot(1, 2, 2)
+    bars2 = plt.bar(secend_counts.index, secend_counts.values, color='#c7ffe7', edgecolor='black')
     plt.bar(secend_counts.index, secend_counts.values,color='#c7ffe7', edgecolor='black')
     plt.xlabel(f'第二位数字 (进制: {base})')
     plt.ylabel('出现次数')
     plt.title(f'{路径[0].upper()}盘文件大小{base}进制第二位数字分布')
     plt.xticks(range(0, base))
+
+        # 在柱子上方添加百分比
+    total2 = sum(secend_counts.values)
+    for bar in bars2:
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width() / 2, height, f'{height / total2 * 100:.1f}%', ha='center', va='bottom')
+    
     plt.tight_layout()
     plt.show()
     #return first_counts,secend_counts
 
-root_directory = input('请输入你想统计的盘符：')+':\\'
+root_directory = input('请输入你想统计的盘符（C盘不一定支持）：')+':\\'
 all_file_sizes = get_all_file_sizes(root_directory)
 # 将字典转换为 pandas 的 DataFrame
 df = pd.DataFrame(list(all_file_sizes.items()), columns=['文件路径', '文件大小(字节)'])
@@ -100,7 +114,7 @@ secend_counts_nums = []
 errornum=0
 worningnum=0
 while True:
-    base=input("想看哪个进制的分布？2-16都可以哦,输入我全都要可以看全部，输入不玩了推出：")
+    base=input("想看哪个进制的分布？2-16都可以哦,输我全都要可以看全部，输不玩了退出：")
     if base=='我全都要':
         for i in range(2, 17):
             print(f'正在统计{i}进制的分布……')
@@ -119,12 +133,12 @@ while True:
             print('不要把奇怪的东西输入进来！！！')
             errornum+=1
             if errornum==3:
-                print('那个不可以！！！我不玩啦！真的！！！')
+                print('这个不可以！！！我不玩啦！真的！！！')
                 worningnum+=1
                 if worningnum==3:
                     print('把我当日本人耍是吧？')
                     sleep(4)
-                    print('手机没油了挂了拜拜')
+                    print('手机没油了挂了吧拜拜')
                     break
                 errornum=0
             continue
